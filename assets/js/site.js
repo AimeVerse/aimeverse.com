@@ -13,7 +13,10 @@
   var headerFallback =
     '<a class="skip-link" href="#main-content">Skip to content</a>' +
     '<header class="site-header"><div class="container header-inner">' +
-    '<a class="brand" href="/" data-route="/">Aime Technologies</a>' +
+    '<a class="brand" href="/" data-route="/">' +
+    '<img class="brand-logo" src="/assets/img/aime-logo-mark.svg" data-asset-src="assets/img/aime-logo-mark.svg" alt="" aria-hidden="true">' +
+    '<span class="brand-text">Aime Technologies</span>' +
+    "</a>" +
     '<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle><span class="nav-toggle-label">Menu</span></button>' +
     '<nav id="site-nav" class="site-nav" aria-label="Main navigation" data-site-nav>' +
     '<a href="/" data-route="/" data-nav-link>Home</a>' +
@@ -23,7 +26,7 @@
     '<a href="/blog/" data-route="/blog/" data-nav-link>Blog</a>' +
     '<a href="/about/" data-route="/about/" data-nav-link>About</a>' +
     '<a href="/contact/" data-route="/contact/" data-nav-link>Contact</a>' +
-    '</nav><a class="btn btn-accent header-cta" href="/platform/" data-route="/platform/">Explore Xpell</a>' +
+    '</nav><a class="btn btn-accent header-cta" href="https://xpell.ai">Explore Xpell</a>' +
     "</div></header>";
 
   var footerFallback =
@@ -54,6 +57,17 @@
     links.forEach(function (link) {
       var route = link.getAttribute("data-route");
       link.setAttribute("href", routeToHref(route));
+    });
+  }
+
+  function applyAssetSources(scope) {
+    var assets = (scope || document).querySelectorAll("[data-asset-src]");
+    assets.forEach(function (asset) {
+      var assetPath = asset.getAttribute("data-asset-src");
+      if (!assetPath) {
+        return;
+      }
+      asset.setAttribute("src", new URL(assetPath, siteRootUrl).href);
     });
   }
 
@@ -168,6 +182,7 @@
       injectPartial("site-footer", footerUrl, footerFallback)
     ]).then(function () {
       applyRouteLinks(document);
+      applyAssetSources(document);
       highlightActiveNav();
       setupMobileNav();
       setFooterYear();

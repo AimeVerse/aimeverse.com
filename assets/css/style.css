@@ -97,12 +97,26 @@ ol {
 }
 
 .brand {
+  align-items: center;
   color: var(--text);
+  display: inline-flex;
   font-size: 1.05rem;
   font-weight: 650;
+  gap: 0.55rem;
   letter-spacing: 0.02em;
   text-decoration: none;
   white-space: nowrap;
+}
+
+.brand-logo {
+  border-radius: 0.3rem;
+  display: block;
+  height: 1.5rem;
+  width: auto;
+}
+
+.brand-text {
+  display: inline-block;
 }
 
 .site-nav {
@@ -311,6 +325,10 @@ main {
     gap: var(--space-3);
     min-height: 3.8rem;
     padding: var(--space-2) 0;
+  }
+
+  .brand-text {
+    font-size: 0.98rem;
   }
 
   .nav-toggle {
