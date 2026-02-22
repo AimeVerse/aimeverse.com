@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>What AI-Native Architecture Means in Practice | Aime Technologies</title>
+    <meta
+      name="description"
+      content="A plain-language view of AI-native architecture and its core principles."
+    />
+    <link rel="stylesheet" href="../../assets/css/style.css" />
+  </head>
+  <body>
+    <div id="site-header"></div>
+
+    <main id="main-content" tabindex="-1">
+      <article class="container article">
+        <h1 class="page-title">What AI-Native Architecture Means in Practice</h1>
+        <p class="meta">Published February 22, 2026</p>
+
+        <p>
+          AI-native architecture is not a marketing label. It is a system design choice: represent runtime behavior in
+          structures that both humans and AI can inspect, reason about, and operate safely.
+        </p>
+        <p>
+          In traditional stacks, interface behavior often lives in many disconnected code paths. In AI-native systems,
+          interfaces, actions, and state changes are explicit contracts. That makes collaboration and automation more
+          reliable.
+        </p>
+
+        <section class="section" aria-labelledby="principles-title">
+          <h2 id="principles-title">Five Principles</h2>
+          <ul class="list">
+            <li>Model interfaces as structured data that runtime engines can interpret consistently.</li>
+            <li>Keep actions and handlers serializable so behavior is shareable across system boundaries.</li>
+            <li>Define a formal state model to remove hidden mutation paths and ambiguity.</li>
+            <li>Use event-driven updates as the main coordination mechanism for clients, services, and agents.</li>
+            <li>Design for real-time human and AI collaboration with explicit permission and validation boundaries.</li>
+          </ul>
+        </section>
+
+        <p>
+          This approach prioritizes predictability over shortcuts. The result is a runtime that can evolve quickly
+          without losing operational clarity.
+        </p>
+
+        <p>
+          <a href="/blog/" data-route="/blog/">Back to blog index</a>
+        </p>
+      </article>
+    </main>
+
+    <div id="site-footer"></div>
+    <script defer src="../../assets/js/site.js"></script>
+  </body>
+</html>

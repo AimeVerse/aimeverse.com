@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI-Native Architecture | Aime Technologies</title>
+    <meta
+      name="description"
+      content="How Aime Technologies structures interfaces, state, and runtime events for AI-native systems."
+    />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+  <body>
+    <div id="site-header"></div>
+
+    <main id="main-content" tabindex="-1">
+      <div class="container">
+        <h1 class="page-title">AI-Native Architecture</h1>
+        <p class="lead">
+          AI-native architecture treats runtime behavior as first-class data. Instead of hiding system logic behind
+          disconnected UI code and ad hoc scripts, we model interfaces, state transitions, and actions explicitly.
+        </p>
+
+        <section class="section" aria-labelledby="principles-title">
+          <h2 id="principles-title">Core Principles</h2>
+          <div class="grid grid-2">
+            <article class="card">
+              <h3>Interfaces as Structured Data</h3>
+              <p>Views are represented as structured objects so they can be interpreted, analyzed, and evolved safely.</p>
+            </article>
+            <article class="card">
+              <h3>Serializable Actions and Handlers</h3>
+              <p>Action definitions are data-first, enabling deterministic execution and AI-safe participation.</p>
+            </article>
+            <article class="card">
+              <h3>Formal State Model</h3>
+              <p>State is explicit and observable, reducing hidden coupling and improving reproducibility.</p>
+            </article>
+            <article class="card">
+              <h3>Event-Driven Runtime</h3>
+              <p>Events connect UI, services, and agents, keeping behavior synchronized across runtime boundaries.</p>
+            </article>
+            <article class="card">
+              <h3>Real-Time Human + AI Collaboration</h3>
+              <p>Humans and AI interact inside the same runtime model with clear contracts and predictable outcomes.</p>
+            </article>
+          </div>
+        </section>
+
+        <aside class="callout" aria-label="Xpell runtime note">
+          <strong>Xpell 2 is our runtime foundation for AI-native systems.</strong>
+        </aside>
+
+        <div class="actions">
+          <a class="btn btn-accent" href="/platform/" data-route="/platform/">Platform overview</a>
+        </div>
+      </div>
+    </main>
+
+    <div id="site-footer"></div>
+    <script defer src="../assets/js/site.js"></script>
+  </body>
+</html>

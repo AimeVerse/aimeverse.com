@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Xpell Platform | Aime Technologies</title>
+    <meta
+      name="description"
+      content="High-level overview of the Xpell platform layers and runtime architecture."
+    />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+  <body>
+    <div id="site-header"></div>
+
+    <main id="main-content" tabindex="-1">
+      <div class="container">
+        <h1 class="page-title">Xpell Platform</h1>
+        <p class="lead">
+          Xpell is a layered runtime platform for AI-native systems. This page is a high-level map of the core parts,
+          not deep package documentation.
+        </p>
+
+        <section class="section" aria-labelledby="layers-title">
+          <h2 id="layers-title">Layered Architecture</h2>
+          <div class="grid grid-2">
+            <article class="card">
+              <h3>@xpell/core</h3>
+              <p>XData 2, Nano-Commands 2, XEM, XModule, and XObject primitives for deterministic runtime behavior.</p>
+            </article>
+            <article class="card">
+              <h3>@xpell/node</h3>
+              <p>Xpell Server, Wormholes 2 transport, and XDB-backed persistence for server-side runtime execution.</p>
+            </article>
+            <article class="card">
+              <h3>@xpell/ui</h3>
+              <p>XUI and XUIObject composition with a Wormholes client boundary for real-time interface updates.</p>
+            </article>
+            <article class="card">
+              <h3>@xpell/3d</h3>
+              <p>Three.js-based 3D layer for structured scene composition and consistent command boundaries.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="downloads-title">
+          <h2 id="downloads-title">Downloads</h2>
+          <div class="card">
+            <ul class="list">
+              <li>GitHub: coming soon</li>
+              <li>Codex skill: coming soon</li>
+            </ul>
+          </div>
+        </section>
+
+        <div class="actions section">
+          <a class="btn btn-accent" href="/projects/" data-route="/projects/">See demos in Projects</a>
+        </div>
+      </div>
+    </main>
+
+    <div id="site-footer"></div>
+    <script defer src="../assets/js/site.js"></script>
+  </body>
+</html>

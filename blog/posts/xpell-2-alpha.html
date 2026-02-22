@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Xpell 2 Alpha: Runtime Direction | Aime Technologies</title>
+    <meta name="description" content="Goals, package hierarchy, and next steps for Xpell 2 Alpha." />
+    <link rel="stylesheet" href="../../assets/css/style.css" />
+  </head>
+  <body>
+    <div id="site-header"></div>
+
+    <main id="main-content" tabindex="-1">
+      <article class="container article">
+        <h1 class="page-title">Xpell 2 Alpha: Runtime Direction</h1>
+        <p class="meta">Published February 15, 2026</p>
+
+        <p>
+          Xpell 2 Alpha is focused on one outcome: a dependable runtime foundation for AI-native applications. The
+          alpha phase is about hardening contracts and runtime behavior before widening the surface area.
+        </p>
+
+        <section class="section" aria-labelledby="goals-title">
+          <h2 id="goals-title">Current Goals</h2>
+          <ul class="list">
+            <li>Keep data, actions, and events explicit and serializable.</li>
+            <li>Stabilize deterministic runtime behavior across UI and server boundaries.</li>
+            <li>Reduce hidden coupling through strict module contracts.</li>
+          </ul>
+        </section>
+
+        <section class="section" aria-labelledby="packages-title">
+          <h2 id="packages-title">Package Hierarchy</h2>
+          <div class="grid">
+            <article class="card">
+              <h3>@xpell/core</h3>
+              <p>Shared runtime primitives: XData 2, Nano-Commands 2, XEM, XModule, and XObject.</p>
+            </article>
+            <article class="card">
+              <h3>@xpell/node</h3>
+              <p>Server runtime: Xpell Server, Wormholes 2 boundaries, and persistence support via XDB.</p>
+            </article>
+            <article class="card">
+              <h3>@xpell/ui</h3>
+              <p>Structured UI layer: XUI and XUIObject models with real-time transport integration.</p>
+            </article>
+            <article class="card">
+              <h3>@xpell/3d</h3>
+              <p>Three.js-based 3D runtime layer for deterministic scene behavior.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="next-title">
+          <h2 id="next-title">What Comes Next</h2>
+          <p>
+            Near-term work stays focused on runtime reliability, architecture notes, and practical demos. A broader UX
+            layer comes later.
+          </p>
+        </section>
+
+        <p>
+          <a href="/blog/" data-route="/blog/">Back to blog index</a>
+        </p>
+      </article>
+    </main>
+
+    <div id="site-footer"></div>
+    <script defer src="../../assets/js/site.js"></script>
+  </body>
+</html>
