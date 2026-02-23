@@ -13,20 +13,20 @@
   var headerFallback =
     '<a class="skip-link" href="#main-content">Skip to content</a>' +
     '<header class="site-header"><div class="container header-inner">' +
-    '<a class="brand" href="index.html" data-route="/">' +
+    '<a class="brand" href="index.html" data-route="index.html">' +
     '<img class="brand-logo" src="/assets/img/aime-logo-mark.svg" data-asset-src="assets/img/aime-logo-mark.svg" alt="" aria-hidden="true">' +
     '<span class="brand-text">Aime Technologies</span>' +
     "</a>" +
     '<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle><span class="nav-toggle-label">Menu</span></button>' +
     '<nav id="site-nav" class="site-nav" aria-label="Main navigation" data-site-nav>' +
-    '<a href="index.html" data-route="/" data-nav-link>Home</a>' +
-    '<a href="technology/" data-route="/technology/" data-nav-link>Technology</a>' +
-    '<a href="platform/" data-route="/platform/" data-nav-link>Platform</a>' +
-    '<a href="xpell-ai/" data-route="/xpell-ai/" data-nav-link>xpell-ai</a>' +
-    '<a href="projects/" data-route="/projects/" data-nav-link>Projects</a>' +
-    '<a href="blog/" data-route="/blog/" data-nav-link>Blog</a>' +
-    '<a href="about/" data-route="/about/" data-nav-link>About</a>' +
-    '<a href="contact/" data-route="/contact/" data-nav-link>Contact</a>' +
+    '<a href="index.html" data-route="index.html" data-nav-link>Home</a>' +
+    '<a href="technology/" data-route="technology/" data-nav-link>Technology</a>' +
+    '<a href="platform/" data-route="platform/" data-nav-link>Platform</a>' +
+    '<a href="xpell-ai/" data-route="xpell-ai/" data-nav-link>xpell-ai</a>' +
+    '<a href="projects/" data-route="projects/" data-nav-link>Projects</a>' +
+    '<a href="blog/" data-route="blog/" data-nav-link>Blog</a>' +
+    '<a href="about/" data-route="about/" data-nav-link>About</a>' +
+    '<a href="contact/" data-route="contact/" data-nav-link>Contact</a>' +
     "</nav>" +
     "</div></header>";
 
@@ -34,14 +34,14 @@
     '<footer class="site-footer"><div class="container footer-inner">' +
     '<p class="footer-description">Aime Technologies builds AI-native runtime systems for real-time human and AI collaboration.</p>' +
     '<nav class="footer-nav" aria-label="Footer navigation">' +
-    '<a href="index.html" data-route="/">Home</a>' +
-    '<a href="technology/" data-route="/technology/">Technology</a>' +
-    '<a href="platform/" data-route="/platform/">Platform</a>' +
-    '<a href="xpell-ai/" data-route="/xpell-ai/">xpell-ai</a>' +
-    '<a href="projects/" data-route="/projects/">Projects</a>' +
-    '<a href="blog/" data-route="/blog/">Blog</a>' +
-    '<a href="about/" data-route="/about/">About</a>' +
-    '<a href="contact/" data-route="/contact/">Contact</a>' +
+    '<a href="index.html" data-route="index.html">Home</a>' +
+    '<a href="technology/" data-route="technology/">Technology</a>' +
+    '<a href="platform/" data-route="platform/">Platform</a>' +
+    '<a href="xpell-ai/" data-route="xpell-ai/">xpell-ai</a>' +
+    '<a href="projects/" data-route="projects/">Projects</a>' +
+    '<a href="blog/" data-route="blog/">Blog</a>' +
+    '<a href="about/" data-route="about/">About</a>' +
+    '<a href="contact/" data-route="contact/">Contact</a>' +
     '</nav><section class="footer-connect" aria-labelledby="connect-title">' +
     '<h3 id="connect-title">Connect with Aime</h3>' +
     '<div class="social-links">' +
@@ -145,8 +145,32 @@
     var currentRoute = detectCurrentRoute(window.location.pathname);
     var navLinks = document.querySelectorAll("[data-nav-link]");
 
+    function normalizeRoute(route) {
+      if (!route || route === "index.html") {
+        return "/";
+      }
+
+      var clean = route.replace(/^\/+/, "");
+      if (clean.endsWith("index.html")) {
+        clean = clean.slice(0, -"index.html".length);
+      }
+
+      if (!clean) {
+        return "/";
+      }
+
+      if (!clean.endsWith("/")) {
+        if (clean.indexOf(".html") !== -1) {
+          return "/" + clean;
+        }
+        clean += "/";
+      }
+
+      return "/" + clean;
+    }
+
     navLinks.forEach(function (link) {
-      var isCurrent = link.getAttribute("data-route") === currentRoute;
+      var isCurrent = normalizeRoute(link.getAttribute("data-route")) === currentRoute;
       link.classList.toggle("is-active", isCurrent);
       if (isCurrent) {
         link.setAttribute("aria-current", "page");
