@@ -210,10 +210,25 @@ main {
   max-width: 70ch;
 }
 
+.hero-logo-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-logo {
+  height: auto;
+  max-width: min(220px, 45vw);
+  width: 100%;
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3);
+}
+
+.actions-center {
+  justify-content: center;
 }
 
 .section {
@@ -308,10 +323,6 @@ main {
 @media (max-width: 980px) {
   .grid-3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .header-cta {
-    display: none;
   }
 }
 

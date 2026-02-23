@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Xpell.AI | Aime Technologies</title>
+    <meta
+      name="description"
+      content="Xpell 2 introduces an AI-native architecture for vibe coding with structured runtime contracts across core, node, ui, and 3d layers."
+    />
+    <link rel="canonical" href="https://aimeverse.com/xpell-ai/" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9W4KQRMBMG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9W4KQRMBMG');
+</script>
+  <script>
+    document.addEventListener('click', function (event) {
+      var target = event.target;
+      if (!target || typeof target.closest !== 'function') {
+        return;
+      }
+
+      var link = target.closest('a[href]');
+      if (!link) {
+        return;
+      }
+
+      var url;
+      try {
+        url = new URL(link.getAttribute('href'), window.location.href);
+      } catch (error) {
+        return;
+      }
+
+      if (url.hostname.indexOf('xpell.ai') !== -1 && typeof gtag === 'function') {
+        gtag('event', 'outbound_click', {
+          link_domain: 'xpell.ai',
+          page_path: window.location.pathname
+        });
+      }
+    });
+  </script>
+</head>
+  <body>
+    <div id="site-header"></div>
+
+    <main id="main-content" tabindex="-1">
+      <article class="container article">
+        <section class="section">
+          <h1>Xpell 2 — AI-Native Architecture for Vibe Coding</h1>
+
+          <p>
+            AI can generate code. But generation alone is not architecture. If AI is going to collaborate with live
+            systems — update interfaces, evolve flows, and persist state — the runtime must be designed for it.
+          </p>
+
+          <p>
+            At Aime Technologies, we call this <strong>AI-Native Architecture</strong>: an approach where software is
+            structured to support real-time collaboration between humans and AI.
+          </p>
+        </section>
+
+        <section class="section" aria-labelledby="ai-native-meaning">
+          <h2 id="ai-native-meaning">What “AI-Native Architecture” means</h2>
+          <ul class="list">
+            <li><strong>Interfaces are structured data</strong> — not static code that must be rebuilt for every change.</li>
+            <li><strong>Logic can be serialized</strong> — enabling safe AI-driven edits without rewriting everything.</li>
+            <li>
+              <strong>State is formalized</strong> — predictable shared runtime state instead of scattered ad-hoc
+              variables.
+            </li>
+            <li><strong>Runtime interpretation replaces rebuild cycles</strong> — evolve the application while it runs.</li>
+            <li><strong>AI can collaborate safely</strong> — modify parts of the system without breaking the whole.</li>
+          </ul>
+        </section>
+
+        <section class="section" aria-labelledby="full-stack-platform">
+          <h2 id="full-stack-platform">Xpell 2 is a full-stack platform</h2>
+          <p>
+            Xpell 1 focused on the client runtime. Xpell 2 expands into a structured, modular, full-stack platform.
+          </p>
+
+          <div class="grid">
+            <section class="card" aria-labelledby="core-layer">
+              <h3 id="core-layer">@xpell/core</h3>
+              <ul class="list">
+                <li><strong>XData 2</strong> — improved shared runtime state model.</li>
+                <li><strong>Nano-Commands 2</strong> — command handlers as text and structured JSON.</li>
+                <li><strong>XEM</strong> — Xpell Event Manager.</li>
+                <li><strong>XModule</strong> — extension point for runtime behavior.</li>
+                <li><strong>XObject</strong> — core runtime object model.</li>
+              </ul>
+            </section>
+
+            <section class="card" aria-labelledby="node-layer">
+              <h3 id="node-layer">@xpell/node (Xpell server / xnode)</h3>
+              <ul class="list">
+                <li><strong>Xpell Server</strong> — server execution layer.</li>
+                <li><strong>Wormholes 2</strong> — real-time client/server bridge.</li>
+                <li><strong>XDB</strong> — Xpell database (graph + vector / semantic-ready).</li>
+              </ul>
+            </section>
+
+            <section class="card" aria-labelledby="ui-layer">
+              <h3 id="ui-layer">@xpell/ui (Web)</h3>
+              <ul class="list">
+                <li><strong>XUI</strong> — real-time UI framework.</li>
+                <li><strong>XUIObject</strong> — UI object model (UI behaviors live here, not in core).</li>
+                <li><strong>Wormholes (client)</strong> — real-time connectivity.</li>
+              </ul>
+            </section>
+
+            <section class="card" aria-labelledby="three-d-layer">
+              <h3 id="three-d-layer">@xpell/3d</h3>
+              <ul class="list">
+                <li>Spatial runtime layer based on <strong>three.js</strong>.</li>
+              </ul>
+            </section>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="designed-for-vibe-coding">
+          <h2 id="designed-for-vibe-coding">Designed for Vibe Coding</h2>
+          <p>
+            Xpell 2 is designed for <strong>Vibe Coding</strong> — where AI can generate and evolve applications
+            through structured runtime contracts rather than static code output.
+          </p>
+
+          <p>
+            Before launching the full Vibe experience, we will share an early <strong>Codex skill</strong> capable of
+            generating complete Xpell applications on top of Xpell 2 Alpha.
+          </p>
+
+          <p>
+            Technical documentation, examples, and downloads will live on
+            <a href="https://xpell.ai">xpell.ai</a>.
+          </p>
+        </section>
+
+        <div class="actions actions-center section">
+          <a class="btn btn-accent" href="https://xpell.ai">Explore Xpell.AI</a>
+        </div>
+      </article>
+    </main>
+
+    <div id="site-footer"></div>
+    <script defer src="../assets/js/site.js"></script>
+  </body>
+</html>

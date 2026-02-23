@@ -22,11 +22,12 @@
     '<a href="/" data-route="/" data-nav-link>Home</a>' +
     '<a href="/technology/" data-route="/technology/" data-nav-link>Technology</a>' +
     '<a href="/platform/" data-route="/platform/" data-nav-link>Platform</a>' +
+    '<a href="/xpell-ai/" data-route="/xpell-ai/" data-nav-link>xpell-ai</a>' +
     '<a href="/projects/" data-route="/projects/" data-nav-link>Projects</a>' +
     '<a href="/blog/" data-route="/blog/" data-nav-link>Blog</a>' +
     '<a href="/about/" data-route="/about/" data-nav-link>About</a>' +
     '<a href="/contact/" data-route="/contact/" data-nav-link>Contact</a>' +
-    '</nav><a class="btn btn-accent header-cta" href="https://xpell.ai">Explore Xpell</a>' +
+    "</nav>" +
     "</div></header>";
 
   var footerFallback =
@@ -36,6 +37,7 @@
     '<a href="/" data-route="/">Home</a>' +
     '<a href="/technology/" data-route="/technology/">Technology</a>' +
     '<a href="/platform/" data-route="/platform/">Platform</a>' +
+    '<a href="/xpell-ai/" data-route="/xpell-ai/">xpell-ai</a>' +
     '<a href="/projects/" data-route="/projects/">Projects</a>' +
     '<a href="/blog/" data-route="/blog/">Blog</a>' +
     '<a href="/about/" data-route="/about/">About</a>' +
@@ -46,6 +48,10 @@
   function routeToHref(route) {
     if (!route || route === "/") {
       return siteRootUrl.href;
+    }
+
+    if (route === "/xpell-ai/") {
+      return new URL("xpell-ai/index.html", siteRootUrl).href;
     }
 
     var clean = route.replace(/^\/+/, "");
@@ -81,6 +87,7 @@
     var routes = [
       "/technology/",
       "/platform/",
+      "/xpell-ai/",
       "/projects/",
       "/blog/",
       "/about/",

@@ -8,8 +8,44 @@
       name="description"
       content="High-level overview of the Xpell platform layers and runtime architecture."
     />
+    <link rel="canonical" href="https://aimeverse.com/platform/" />
     <link rel="stylesheet" href="../assets/css/style.css" />
-  </head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9W4KQRMBMG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9W4KQRMBMG');
+</script>
+  <script>
+    document.addEventListener('click', function (event) {
+      var target = event.target;
+      if (!target || typeof target.closest !== 'function') {
+        return;
+      }
+
+      var link = target.closest('a[href]');
+      if (!link) {
+        return;
+      }
+
+      var url;
+      try {
+        url = new URL(link.getAttribute('href'), window.location.href);
+      } catch (error) {
+        return;
+      }
+
+      if (url.hostname.indexOf('xpell.ai') !== -1 && typeof gtag === 'function') {
+        gtag('event', 'outbound_click', {
+          link_domain: 'xpell.ai',
+          page_path: window.location.pathname
+        });
+      }
+    });
+  </script>
+</head>
   <body>
     <div id="site-header"></div>
 
@@ -21,29 +57,114 @@
           not deep package documentation.
         </p>
 
-        <section class="section" aria-labelledby="layers-title">
-          <h2 id="layers-title">Layered Architecture</h2>
-          <div class="grid grid-2">
+        <section class="section" id="xpell-platform-components" aria-labelledby="xpell-platform-components-title">
+          <h2 id="xpell-platform-components-title">Xpell Platform Components</h2>
+          <p class="muted">
+            Xpell is the AI-native platform behind Aime Technologies systems. It combines real-time execution,
+            semantic memory, and a dynamic UI runtime so agents and applications can stay consistent while evolving.
+          </p>
+          <p class="muted">
+            These are the core building blocks that make Xpell a full platform rather than a thin model wrapper.
+          </p>
+
+          <div class="grid">
             <article class="card">
-              <h3>@xpell/core</h3>
-              <p>XData 2, Nano-Commands 2, XEM, XModule, and XObject primitives for deterministic runtime behavior.</p>
+              <h3>Xpell Runtime Engine</h3>
+              <p class="meta">AI-native execution core</p>
+              <p>
+                The runtime engine coordinates live agent behavior across reasoning steps, model actions, workflows,
+                triggers, scheduling, and shared state transitions.
+              </p>
+              <p>It is tuned for low-latency decisions that remain reliable across both client and server runtimes.</p>
+              <p><strong>Capabilities</strong></p>
+              <ul class="list">
+                <li>Real-time workflow execution</li>
+                <li>Trigger and scheduling orchestration</li>
+                <li>State-aware agent actions</li>
+                <li>Consistent runtime behavior across environments</li>
+              </ul>
             </article>
+
             <article class="card">
-              <h3>@xpell/node</h3>
-              <p>Xpell Server, Wormholes 2 transport, and XDB-backed persistence for server-side runtime execution.</p>
+              <h3>XDB Semantic Database</h3>
+              <p class="meta">Graph + vector memory for knowledge</p>
+              <p>
+                XDB stores entities, documents, embeddings, metadata, and relationships in one semantic data layer.
+              </p>
+              <p>
+                This foundation supports retrieval-augmented generation, contextual responses, personalization, and
+                durable memory across sessions.
+              </p>
+              <p><strong>Capabilities</strong></p>
+              <ul class="list">
+                <li>Unified entity and embedding storage</li>
+                <li>Semantic retrieval for RAG</li>
+                <li>Relationship-aware context</li>
+                <li>Long-lived conversational memory</li>
+              </ul>
             </article>
+
             <article class="card">
-              <h3>@xpell/ui</h3>
-              <p>XUI and XUIObject composition with a Wormholes client boundary for real-time interface updates.</p>
+              <h3>Xpell-UI</h3>
+              <p class="meta">AI-native UI framework (2D + 3D)</p>
+              <p>
+                Xpell-UI (XUI) allows interfaces to be generated and updated through intent, schema, and runtime
+                data instead of manual component wiring.
+              </p>
+              <p>Xpell also includes a spatial runtime layer for 3D interfaces, built on three.js.</p>
+              <p><strong>Capabilities</strong></p>
+              <ul class="list">
+                <li>Schema and data-driven views</li>
+                <li>Dynamic dashboards, forms, and applications</li>
+                <li>AI-assisted UI evolution</li>
+                <li>3D and spatial UI layer (three.js)</li>
+              </ul>
             </article>
+
             <article class="card">
-              <h3>@xpell/3d</h3>
-              <p>Three.js-based 3D layer for structured scene composition and consistent command boundaries.</p>
+              <h3>xnode (Xpell Server)</h3>
+              <p class="meta">Server execution layer</p>
+              <p>
+                xnode runs Xpell on the backend and coordinates agents, data access, and real-time operations across
+                services.
+              </p>
+              <p>It provides the server-side runtime base required for full-stack AI-native applications.</p>
+              <p><strong>Capabilities</strong></p>
+              <ul class="list">
+                <li>Backend runtime execution</li>
+                <li>Agent and data orchestration</li>
+                <li>Real-time operations across services</li>
+                <li>Full-stack platform foundation</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3>Wormholes</h3>
+              <p class="meta">Real-time communication layer</p>
+              <p>
+                Wormholes is Xpell&apos;s lightweight bidirectional communication layer that keeps runtime state
+                synchronized in real time.
+              </p>
+              <p>
+                It propagates UI updates, agent actions, data changes, and workflow events between server and client.
+              </p>
+              <p><strong>Capabilities</strong></p>
+              <ul class="list">
+                <li>Bidirectional realtime synchronization</li>
+                <li>UI, data, and workflow event propagation</li>
+                <li>Multi-device consistency</li>
+                <li>Low-latency system coordination</li>
+              </ul>
             </article>
           </div>
+
+          <p class="muted">
+            Technical documentation, examples, and downloads live on
+            <a href="https://xpell.ai">xpell.ai</a>.
+          </p>
         </section>
 
-        <section class="section" aria-labelledby="downloads-title">
+        <!-- <section class="section" aria-labelledby="downloads-title">
           <h2 id="downloads-title">Downloads</h2>
           <div class="card">
             <ul class="list">
@@ -51,7 +172,7 @@
               <li>Codex skill: coming soon</li>
             </ul>
           </div>
-        </section>
+        </section> -->
 
         <div class="actions section">
           <a class="btn btn-accent" href="/projects/" data-route="/projects/">See demos in Projects</a>

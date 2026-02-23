@@ -1,94 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Aime Technologies | Building AI-Native Systems</title>
-    <meta
-      name="description"
-      content="Aime Technologies builds runtime infrastructure and intelligent agents for real-time collaboration between humans and AI."
-    />
-    <link rel="stylesheet" href="assets/css/style.css" />
-  </head>
-  <body>
-    <div id="site-header"></div>
 
-    <main id="main-content" tabindex="-1">
-      <div class="container">
-        <section class="hero" aria-labelledby="hero-title">
-          <h1 id="hero-title">Building AI-Native Systems</h1>
-          <p class="lead">
-            Aime Technologies builds runtime infrastructure and intelligent agents designed for real-time collaboration
-            between humans and AI.
-          </p>
-          <div class="actions">
-            <a class="btn btn-accent" href="/technology/" data-route="/technology/">Explore Technology</a>
-            <a class="btn btn-ghost" href="/platform/" data-route="/platform/">Xpell Platform</a>
-          </div>
-        </section>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aime Technologies | Building AI-Native Systems</title>
+  <meta name="description"
+    content="Aime Technologies builds runtime infrastructure and intelligent agents for real-time collaboration between humans and AI." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9W4KQRMBMG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9W4KQRMBMG');
+</script>
+  <script>
+    document.addEventListener('click', function (event) {
+      var target = event.target;
+      if (!target || typeof target.closest !== 'function') {
+        return;
+      }
 
-        <section class="section" aria-labelledby="architecture-title">
-          <h2 id="architecture-title">AI-Native Architecture</h2>
-          <ul class="list">
-            <li>Interfaces are represented as structured data, not hard-coded views.</li>
-            <li>Actions and handlers are serializable so AI can reason about them safely.</li>
-            <li>State is formalized and observable, enabling deterministic runtime behavior.</li>
-            <li>Events drive updates across clients, services, and AI agents in real time.</li>
-          </ul>
-        </section>
+      var link = target.closest('a[href]');
+      if (!link) {
+        return;
+      }
 
-        <section class="section" aria-labelledby="xpell-alpha-title">
-          <h2 id="xpell-alpha-title">Xpell 2 Alpha</h2>
-          <p class="muted">
-            Xpell 2 Alpha is our current runtime foundation for AI-native systems. The focus is simple: explicit models,
-            serializable behavior, and predictable collaboration loops.
-          </p>
-        </section>
+      var url;
+      try {
+        url = new URL(link.getAttribute('href'), window.location.href);
+      } catch (error) {
+        return;
+      }
 
-        <section class="section" aria-labelledby="projects-title">
-          <h2 id="projects-title">Projects</h2>
-          <div class="grid grid-3">
-            <article class="card">
-              <h3>Xpell</h3>
-              <p>Runtime platform for structured state, event-driven execution, and AI collaboration workflows.</p>
-              <a href="/platform/" data-route="/platform/">Learn more</a>
-            </article>
-            <article class="card">
-              <h3>AIME</h3>
-              <p>Reference AI agent experiment used to test architecture decisions and runtime behavior.</p>
-              <a href="/projects/" data-route="/projects/">Learn more</a>
-            </article>
-            <article class="card">
-              <h3>VIBE</h3>
-              <p>UX layer planned on top of Xpell 2. Design and product details will come later.</p>
-              <a href="/projects/" data-route="/projects/">Learn more</a>
-            </article>
-          </div>
-        </section>
+      if (url.hostname.indexOf('xpell.ai') !== -1 && typeof gtag === 'function') {
+        gtag('event', 'outbound_click', {
+          link_domain: 'xpell.ai',
+          page_path: window.location.pathname
+        });
+      }
+    });
+  </script>
+</head>
 
-        <section class="section" aria-labelledby="blog-title">
-          <h2 id="blog-title">Latest from the Blog</h2>
-          <div class="grid grid-2">
-            <article class="card">
-              <p class="meta">February 22, 2026</p>
-              <h3>What AI-Native Architecture Means in Practice</h3>
-              <p>Plain-language principles for building systems where humans and AI share runtime context.</p>
-              <a href="/blog/posts/ai-native-architecture.html" data-route="/blog/posts/ai-native-architecture.html">
-                Read post
-              </a>
-            </article>
-            <article class="card">
-              <p class="meta">February 15, 2026</p>
-              <h3>Xpell 2 Alpha: Runtime Direction</h3>
-              <p>An overview of the current package hierarchy and near-term goals for the platform.</p>
-              <a href="/blog/posts/xpell-2-alpha.html" data-route="/blog/posts/xpell-2-alpha.html">Read post</a>
-            </article>
-          </div>
-        </section>
-      </div>
-    </main>
+<body>
+  <div id="site-header"></div>
 
-    <div id="site-footer"></div>
-    <script defer src="assets/js/site.js"></script>
-  </body>
+  <main id="main-content" tabindex="-1">
+    <div class="container">
+      <section class="hero" aria-labelledby="hero-title">
+        <h1 id="hero-title">Building AI-Native Systems</h1>
+        <p class="lead">
+          Aime Technologies builds runtime infrastructure and intelligent agents designed for real-time collaboration
+          between humans and AI.
+        </p>
+        <div class="hero-logo-wrap">
+          <img class="hero-logo" src="assets/img/aime-logo.svg" alt="Aime logo" />
+        </div>
+        <div class="actions actions-center">
+          <a class="btn btn-accent" href="https://xpell.ai">Explore Xpell.AI</a>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="architecture-title">
+        <h2 id="architecture-title">AI-Native Architecture</h2>
+        <ul class="list">
+          <li>Interfaces are represented as structured data, not hard-coded views.</li>
+          <li>Actions and handlers are serializable so AI can reason about them safely.</li>
+          <li>State is formalized and observable, enabling deterministic runtime behavior.</li>
+          <li>Events drive updates across clients, services, and AI agents in real time.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="xpell-alpha-title">
+        <h2 id="xpell-alpha-title">Xpell 2 Alpha</h2>
+        <p class="muted">
+          Xpell 2 Alpha is our current runtime foundation for AI-native systems. The focus is simple: explicit models,
+          serializable behavior, and predictable collaboration loops.
+        </p>
+      </section>
+
+      <section class="section" aria-labelledby="projects-title">
+        <h2 id="projects-title">Projects</h2>
+        <div class="grid grid-3">
+          <article class="card">
+            <h3>Xpell</h3>
+            <p>Runtime platform for structured state, event-driven execution, and AI collaboration workflows.</p>
+            <a href="/platform/" data-route="/platform/">Learn more</a>
+          </article>
+          <article class="card">
+            <h3>AIME</h3>
+            <p>Reference AI agent experiment used to test architecture decisions and runtime behavior.</p>
+            <a href="/projects/" data-route="/projects/">Learn more</a>
+          </article>
+          <article class="card">
+            <h3>VIBE</h3>
+            <p>UX layer planned on top of Xpell 2. Design and product details will come later.</p>
+            <a href="/projects/" data-route="/projects/">Learn more</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="blog-title">
+        <h2 id="blog-title">Latest from the Blog</h2>
+        <div class="grid grid-2">
+          <article class="card">
+            <p class="meta">February 22, 2026</p>
+            <h3>What AI-Native Architecture Means in Practice</h3>
+            <p>Plain-language principles for building systems where humans and AI share runtime context.</p>
+            <a href="/blog/posts/ai-native-architecture.html" data-route="/blog/posts/ai-native-architecture.html">
+              Read post
+            </a>
+          </article>
+          <article class="card">
+            <p class="meta">February 15, 2026</p>
+            <h3>Xpell 2 Alpha: Runtime Direction</h3>
+            <p>An overview of the current package hierarchy and near-term goals for the platform.</p>
+            <a href="/blog/posts/xpell-2-alpha.html" data-route="/blog/posts/xpell-2-alpha.html">Read post</a>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script defer src="assets/js/site.js"></script>
+</body>
+
 </html>

@@ -6,7 +6,42 @@
     <title>Xpell 2 Alpha: Runtime Direction | Aime Technologies</title>
     <meta name="description" content="Goals, package hierarchy, and next steps for Xpell 2 Alpha." />
     <link rel="stylesheet" href="../../assets/css/style.css" />
-  </head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9W4KQRMBMG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9W4KQRMBMG');
+</script>
+  <script>
+    document.addEventListener('click', function (event) {
+      var target = event.target;
+      if (!target || typeof target.closest !== 'function') {
+        return;
+      }
+
+      var link = target.closest('a[href]');
+      if (!link) {
+        return;
+      }
+
+      var url;
+      try {
+        url = new URL(link.getAttribute('href'), window.location.href);
+      } catch (error) {
+        return;
+      }
+
+      if (url.hostname.indexOf('xpell.ai') !== -1 && typeof gtag === 'function') {
+        gtag('event', 'outbound_click', {
+          link_domain: 'xpell.ai',
+          page_path: window.location.pathname
+        });
+      }
+    });
+  </script>
+</head>
   <body>
     <div id="site-header"></div>
 
