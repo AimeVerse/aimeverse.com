@@ -13,20 +13,20 @@
   var headerFallback =
     '<a class="skip-link" href="#main-content">Skip to content</a>' +
     '<header class="site-header"><div class="container header-inner">' +
-    '<a class="brand" href="/" data-route="/">' +
+    '<a class="brand" href="index.html" data-route="/">' +
     '<img class="brand-logo" src="/assets/img/aime-logo-mark.svg" data-asset-src="assets/img/aime-logo-mark.svg" alt="" aria-hidden="true">' +
     '<span class="brand-text">Aime Technologies</span>' +
     "</a>" +
     '<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle><span class="nav-toggle-label">Menu</span></button>' +
     '<nav id="site-nav" class="site-nav" aria-label="Main navigation" data-site-nav>' +
-    '<a href="/" data-route="/" data-nav-link>Home</a>' +
-    '<a href="/technology/" data-route="/technology/" data-nav-link>Technology</a>' +
-    '<a href="/platform/" data-route="/platform/" data-nav-link>Platform</a>' +
-    '<a href="/xpell-ai/" data-route="/xpell-ai/" data-nav-link>xpell-ai</a>' +
-    '<a href="/projects/" data-route="/projects/" data-nav-link>Projects</a>' +
-    '<a href="/blog/" data-route="/blog/" data-nav-link>Blog</a>' +
-    '<a href="/about/" data-route="/about/" data-nav-link>About</a>' +
-    '<a href="/contact/" data-route="/contact/" data-nav-link>Contact</a>' +
+    '<a href="index.html" data-route="/" data-nav-link>Home</a>' +
+    '<a href="technology/" data-route="/technology/" data-nav-link>Technology</a>' +
+    '<a href="platform/" data-route="/platform/" data-nav-link>Platform</a>' +
+    '<a href="xpell-ai/" data-route="/xpell-ai/" data-nav-link>xpell-ai</a>' +
+    '<a href="projects/" data-route="/projects/" data-nav-link>Projects</a>' +
+    '<a href="blog/" data-route="/blog/" data-nav-link>Blog</a>' +
+    '<a href="about/" data-route="/about/" data-nav-link>About</a>' +
+    '<a href="contact/" data-route="/contact/" data-nav-link>Contact</a>' +
     "</nav>" +
     "</div></header>";
 
@@ -34,14 +34,14 @@
     '<footer class="site-footer"><div class="container footer-inner">' +
     '<p class="footer-description">Aime Technologies builds AI-native runtime systems for real-time human and AI collaboration.</p>' +
     '<nav class="footer-nav" aria-label="Footer navigation">' +
-    '<a href="/" data-route="/">Home</a>' +
-    '<a href="/technology/" data-route="/technology/">Technology</a>' +
-    '<a href="/platform/" data-route="/platform/">Platform</a>' +
-    '<a href="/xpell-ai/" data-route="/xpell-ai/">xpell-ai</a>' +
-    '<a href="/projects/" data-route="/projects/">Projects</a>' +
-    '<a href="/blog/" data-route="/blog/">Blog</a>' +
-    '<a href="/about/" data-route="/about/">About</a>' +
-    '<a href="/contact/" data-route="/contact/">Contact</a>' +
+    '<a href="index.html" data-route="/">Home</a>' +
+    '<a href="technology/" data-route="/technology/">Technology</a>' +
+    '<a href="platform/" data-route="/platform/">Platform</a>' +
+    '<a href="xpell-ai/" data-route="/xpell-ai/">xpell-ai</a>' +
+    '<a href="projects/" data-route="/projects/">Projects</a>' +
+    '<a href="blog/" data-route="/blog/">Blog</a>' +
+    '<a href="about/" data-route="/about/">About</a>' +
+    '<a href="contact/" data-route="/contact/">Contact</a>' +
     '</nav><section class="footer-connect" aria-labelledby="connect-title">' +
     '<h3 id="connect-title">Connect with Aime</h3>' +
     '<div class="social-links">' +
@@ -55,17 +55,44 @@
     '<div class="footer-legal"><p class="copyright">&copy; 2026 Aime Technologies</p><p class="tagline">Building AI-native systems.</p></div>' +
     "</div></footer>";
 
+  function relativePath(fromDirPath, targetPath, targetIsDir) {
+    var fromParts = fromDirPath.split("/").filter(Boolean);
+    var toParts = targetPath.split("/").filter(Boolean);
+    var common = 0;
+
+    while (common < fromParts.length && common < toParts.length && fromParts[common] === toParts[common]) {
+      common += 1;
+    }
+
+    var segments = [];
+    var i;
+
+    for (i = common; i < fromParts.length; i += 1) {
+      segments.push("..");
+    }
+
+    for (i = common; i < toParts.length; i += 1) {
+      segments.push(toParts[i]);
+    }
+
+    var rel = segments.join("/");
+
+    if (!rel) {
+      rel = "index.html";
+    } else if (targetIsDir && !rel.endsWith("/")) {
+      rel += "/";
+    }
+
+    return rel;
+  }
+
   function routeToHref(route) {
-    if (!route || route === "/") {
-      return siteRootUrl.href;
-    }
+    var clean = route ? route.replace(/^\/+/, "") : "";
+    var target = clean ? clean : "index.html";
+    var targetUrl = new URL(target, siteRootUrl);
+    var currentDirUrl = new URL(".", window.location.href);
 
-    if (route === "/xpell-ai/") {
-      return new URL("xpell-ai/index.html", siteRootUrl).href;
-    }
-
-    var clean = route.replace(/^\/+/, "");
-    return new URL(clean, siteRootUrl).href;
+    return relativePath(currentDirUrl.pathname, targetUrl.pathname, targetUrl.pathname.endsWith("/"));
   }
 
   function applyRouteLinks(scope) {
