@@ -42,7 +42,17 @@
     '<a href="/blog/" data-route="/blog/">Blog</a>' +
     '<a href="/about/" data-route="/about/">About</a>' +
     '<a href="/contact/" data-route="/contact/">Contact</a>' +
-    '</nav><p class="copyright">&copy; <span data-year></span> Aime Technologies</p>' +
+    '</nav><section class="footer-connect" aria-labelledby="connect-title">' +
+    '<h3 id="connect-title">Connect with Aime</h3>' +
+    '<div class="social-links">' +
+    '<a href="https://discord.gg/VP3UFUYH5q" target="_blank" rel="noopener noreferrer">Discord</a>' +
+    '<a href="https://www.linkedin.com/company/aimeverse/" target="_blank" rel="noopener noreferrer">LinkedIn</a>' +
+    '<a href="https://www.youtube.com/@aimetechnologies" target="_blank" rel="noopener noreferrer">YouTube</a>' +
+    '<a href="https://www.facebook.com/aimetechnologies/" target="_blank" rel="noopener noreferrer">Facebook</a>' +
+    '<a href="https://www.instagram.com/aimetechnologies" target="_blank" rel="noopener noreferrer">Instagram</a>' +
+    '<a href="https://x.com/Aimeverseai" target="_blank" rel="noopener noreferrer">X</a>' +
+    "</div></section>" +
+    '<div class="footer-legal"><p class="copyright">&copy; 2026 Aime Technologies</p><p class="tagline">Building AI-native systems.</p></div>' +
     "</div></footer>";
 
   function routeToHref(route) {
